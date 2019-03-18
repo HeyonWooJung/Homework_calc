@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <input name="first">
+        <select name="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input name="second">
+        <button onclick="calc()">=</button>
+        <div id="display-response">결과</div>
+    </div>
+    <script>
+        function calc() {
+            let first = $('#first').val();
+            let second = $('#second').val();
+            let operation = $('#operation').val();
+            let result=0;
+
+            switch (operation){
+                case "+":
+                    result=parseInt(first)+parseInt(second);
+                    try{
+                        $('#display-response').html(JSON.stringify(result))
+                    }catch (err) {
+                        $('#display-response').html(JSON.stringify(err))
+                    }
+                    return result;
+
+                case "-":
+                    result=parseInt(first)-parseInt(second);
+                    try{
+                        $('#display-response').html(JSON.stringify(result))
+                    }catch (err) {
+                        $('#display-response').html(JSON.stringify(err))
+                    }
+                    return result;
+                case "*":
+                    result=parseInt(first)*parseInt(second);
+                    try{
+                        $('#display-response').html(JSON.stringify(result))
+                    }catch (err) {
+                        $('#display-response').html(JSON.stringify(err))
+                    }
+                    return result;
+                case "/":
+                    result=parseInt(first)/parseInt(second);
+                    try{
+                        $('#display-response').html(JSON.stringify(result))
+                    }catch (err) {
+                        $('#display-response').html(JSON.stringify(err))
+                    }
+                    return result;
+                default:
+                    return;
+            }
+        }
+    </script>
+</body>
+</html>
